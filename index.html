@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+			});
+
+			// Функция для добавления слайдов
+			function addSlides() {
+				// Начальный номер страницы
+				let pageNumber = 1;
+
+				// Получаем контейнер для слайдов
+				const slidesContainer = document.querySelector('.slides');
+
+				// Цикл для создания слайдов
+				for (let i = 0; i < 45; i++) {
+					// Создаем новый элемент <section>
+					const section = document.createElement('section');
+
+					// Создаем элемент <img>
+					const img = document.createElement('img');
+
+					const formattedPageNumber = String(pageNumber).padStart(2, '0');
+
+					// Устанавливаем атрибут data-src
+					img.setAttribute('data-src', `data/${pageNumber}.jpg`);
+
+					// Добавляем изображение в секцию
+					section.appendChild(img);
+
+					// Добавляем секцию в контейнер слайдов
+					slidesContainer.appendChild(section);
+
+					// Увеличиваем номер страницы
+					pageNumber++;
+				}
+			}
+
+			// Вызываем функцию добавления слайдов после инициализации
+			addSlides();
+
+		</script>
+	</body>
+</html>
